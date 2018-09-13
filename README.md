@@ -1,8 +1,8 @@
 # tr-comment
 
-> this is tian comment project
+> 供应商评价项目
 
-## Build Setup
+## 项目启动及部署流程
 
 ``` bash
 # install dependencies
@@ -24,4 +24,3 @@ npm run unit
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
