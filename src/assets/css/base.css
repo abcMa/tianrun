@@ -1,0 +1,32 @@
+.head_btn{
+	margin-top: 60px;
+	margin-bottom: 30px;
+}
+.head_btn span{
+	display: block;
+	/* background-image:linear-gradient(-134deg, #50a9f1 0%, #c86dd7 100%);*/
+	/*  border-radius:17.5px;*/
+	background: url(../imgs/head_bg.png) no-repeat;
+	background-size: 100% 100%;
+	width: 176px;
+	height: 46px;
+	line-height: 48px;
+	text-align: center;
+	position: relative;
+	left: 50%;
+	margin-left: -88px;
+	color: #fff;
+	font-size: 14px;
+
+}
+
+.input_s {
+	background: #ffffff;
+	border: 1px solid #cccccc;
+	box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+	border-radius: 6px;
+	width: 400px;
+	height: 34px;	
+	margin:10px 0px;
+	margin-left: 10px;
+}
