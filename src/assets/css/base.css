@@ -1,8 +1,17 @@
-.head_btn{
+* {
+	font-size: 14px;
+}
+
+.head_btn {
 	margin-top: 60px;
 	margin-bottom: 30px;
 }
-.head_btn span{
+
+ul {
+	list-style-type: none;
+}
+
+.head_btn span {
 	display: block;
 	/* background-image:linear-gradient(-134deg, #50a9f1 0%, #c86dd7 100%);*/
 	/*  border-radius:17.5px;*/
@@ -17,7 +26,14 @@
 	margin-left: -88px;
 	color: #fff;
 	font-size: 14px;
+}
 
+input,
+select,
+textarea {
+	padding-left: 10px;
+	font-size: 14px;
+	color: #999;
 }
 
 .input_s {
@@ -26,7 +42,95 @@
 	box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.15);
 	border-radius: 6px;
 	width: 400px;
-	height: 34px;	
-	margin:10px 0px;
+	height: 34px;
+	margin: 10px 0px;
 	margin-left: 10px;
+}
+
+.li_content {
+	/*height: 216px;*/
+	margin-bottom: 40px;
+}
+
+.li_content li {
+	/*height: 26px;*/
+	margin-bottom: 20px;
+	/*line-height: 36px;*/
+	font-size: 14px;
+}
+
+.li_content li span {
+	float: right;
+	margin-right: 20px;
+}
+.title{
+	height: 40px;
+	line-height: 40px;
+}
+select,
+option,.explain{
+	/*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+	border: none;
+	outline: none;
+	/*很关键：将默认的select选择框样式清除*/
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	/*将背景改为红色*/
+    background-color:transparent; 
+	/*加padding防止文字覆盖*/
+	padding-right: .14rem;
+	
+}
+.title select {
+	border: 1px solid #cccccc;
+	box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+	border-radius: 6px;
+	width: 116px;
+	height: 34px;
+	line-height: 34px;
+	float: right;
+	margin-right: 20px;
+		background-color: #fff!important;
+	background: url(../imgs/xl.png) no-repeat right 10px center transparent;
+	background-size: 10px 6px;
+	padding-right: 14px;
+}
+
+.title p {
+	float: left;
+	font-weight: bold;
+}
+.careful {
+	background: rgba(105, 157, 252, 0.08);
+	border: 1px dashed #699dfc;
+	font-size: 14px;
+	padding: 20px;
+	width: 541px;
+	height: 114px;
+}
+
+.careful ul li {
+	margin-bottom: 5px;
+	letter-spacing: 1px;
+}
+
+.submit_btn {
+	position: relative;
+	left: 50%;
+	background: #699dfc;
+	border-radius: 25px;
+	width: 260px;
+	height: 50px;
+	border:solid 1px #699DFC;
+	color: #fff;
+	font-size: 16px;
+	letter-spacing:6px ;
+	margin-left: -130px;
+	margin-bottom: 30px;
+	outline: none!important;
+}
+.explain{
+	width: 400px;
+	border-bottom:#999 1px dashed!important;
 }

@@ -2,7 +2,7 @@
 	<div id="app">
 		<Appheader></Appheader>
 		<Inspec></Inspec>
-		<router-view/>
+		<!--<router-view/>-->
 	</div>
 </template>
 
@@ -24,7 +24,10 @@
     padding: 0px;
   }
     body{
-    	background:#fafdff;
+    	background-color:#f5f9fb;
+    	background:url(assets/imgs/back.png) no-repeat;
+    	background-size: 100%;
+    	
     }
 	#app {
 		/*font-family: 'Avenir', Helvetica, Arial, sans-serif;
