@@ -34,6 +34,7 @@ textarea {
 	padding-left: 10px;
 	font-size: 14px;
 	color: #999;
+	outline: none!important;
 }
 
 .input_s {
@@ -45,6 +46,7 @@ textarea {
 	height: 34px;
 	margin: 10px 0px;
 	margin-left: 10px;
+	display: inline-block!important;
 }
 
 .li_content {
@@ -104,7 +106,6 @@ option,.explain{
 .careful {
 	background: rgba(105, 157, 252, 0.08);
 	border: 1px dashed #699dfc;
-	font-size: 14px;
 	padding: 20px;
 	width: 541px;
 	height: 114px;
@@ -113,6 +114,8 @@ option,.explain{
 .careful ul li {
 	margin-bottom: 5px;
 	letter-spacing: 1px;
+	color:#666666;
+		font-size: 13px;
 }
 
 .submit_btn {
@@ -127,10 +130,14 @@ option,.explain{
 	font-size: 16px;
 	letter-spacing:6px ;
 	margin-left: -130px;
-	margin-bottom: 30px;
+	margin-bottom: 60px;
 	outline: none!important;
+	margin-top:40px;
 }
 .explain{
 	width: 400px;
 	border-bottom:#999 1px dashed!important;
+}
+.pitch{
+	color: #65d7f7;
 }
