@@ -2,6 +2,7 @@
 	<div id="app">
 		<Appheader></Appheader>
 		<Inspec></Inspec>
+		<!--<Tech></Tech>-->
 		<!--<router-view/>-->
 	</div>
 </template>
@@ -9,11 +10,13 @@
 <script>
 	import Header from './components/Header'
 	import Inspec from './pages/Inspection'
+	import Technical from './pages/Technical'
 	export default {
 		name: 'App',
 		components: {
 			'Appheader': Header,
-			'Inspec':Inspec
+			'Inspec':Inspec,
+			'Tech':Technical
 		}
 	}
 </script>
