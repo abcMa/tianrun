@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min.js'
+//import 'bootstrap/dist/js/bootstrap.min.js'
 import './assets/css/datetimepicker.css'
 import './assets/css/base.css'
 

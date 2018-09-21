@@ -1,23 +1,12 @@
 <template>
 	<div id="app">
-		<Appheader></Appheader>
-		<Inspec></Inspec>
-		<!--<Tech></Tech>-->
-		<!--<router-view/>-->
+		<router-view/>
 	</div>
 </template>
 
 <script>
-	import Header from './components/Header'
-	import Inspec from './pages/Inspection'
-	import Technical from './pages/Technical'
 	export default {
-		name: 'App',
-		components: {
-			'Appheader': Header,
-			'Inspec':Inspec,
-			'Tech':Technical
-		}
+		name: 'App'
 	}
 </script>
 <style>
