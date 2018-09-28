@@ -18,7 +18,7 @@
     body{
     	background-color:#f5f9fb;
     	background:url(assets/imgs/back.png) no-repeat;
-    	background-size: 100%;
+    	background-size: 100% 100%;
     	
     }
 	#app {
