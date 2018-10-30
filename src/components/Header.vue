@@ -6,13 +6,13 @@
   	 	 	<span style="font-size: 24px;">供应商评价</span>
   	 	 </h2>
 			<ul style="display: flex;width: 100%;">
-				<li  class="col-md-4" v-bind:class="class1"  @click="add1" style="flex:1;margin-right: -20px;" >
+				<li class="col-md-4" v-bind:class="class1" @click="add1" style="flex:1;margin-right: -20px;">
 					<router-link to="/">物资类供应商使用评价表</router-link>
 				</li>
-				<li class="col-md-4"  style="flex:1;"  v-bind:class="class2" @click="add2">
+				<li class="col-md-4" style="flex:1;" v-bind:class="class2" @click="add2">
 					<router-link to="/Tech">技术服务类供应商使用评价表</router-link>
 				</li>
-				<li class="col-md-4" v-bind:class="class3" @click="add3" style="flex:1;margin-left: -20px;" >
+				<li class="col-md-4" v-bind:class="class3" @click="add3" style="flex:1;margin-left: -20px;">
 					<router-link to="/Mate">运检类供应商使用评价表</router-link>
 				</li>
 			</ul>
@@ -96,9 +96,9 @@
 		line-height: 176px;
 		width: 320px;
 		letter-spacing: 2px;
-		position: relative;
+		position: absolute;
 		left: 50%;
-		margin-left: -130px!important;
+		margin-left: -110px!important;
 	}
 	
 	.logo span {
@@ -117,7 +117,7 @@
 		overflow: hidden;
 		margin-top: 60px;
 		margin-right: 20px;
-		float:left
+		float: left
 	}
 	
 	.logo p {
@@ -135,11 +135,16 @@
 		height: auto;
 	}
 	
+	.Header ul {
+		position: absolute;
+		margin-top: 185px;
+	}
+	
 	.Header ul li {
 		height: 44px;
 		line-height: 44px;
 		text-align: center;
-		margin-top:-10px ;
+		margin-top: -10px;
 		background-size: 100% 100%!important;
 	}
 	
@@ -173,8 +178,7 @@
 	}
 	
 	span {
-		float:left;
-		
+		float: left;
 		margin-top: 10px;
 	}
 	
@@ -182,6 +186,11 @@
 		.Header {
 			background-size: auto 100%;
 		}
+		.Header ul {
+			position: absolute;
+			margin-top: 195px;
+		}
+		
 		.Header ul li {
 			height: 34px;
 			width: 33.33%;
@@ -190,17 +199,23 @@
 			background-size: 100% 100%!important;
 			margin-left: 0px!important;
 			margin-right: 0px!important;
-			
 		}
 		.Header a {
-			font-size: 9px;
+			font-size: 9px!important;
 		}
 		.logo h2 {
 			height: 186px;
 			line-height: 186px;
-			position: relative;
-			left:0%;
-			margin-left: 100px!important;
+		}
+	}
+	@media only screen and (min-width: 100px) and (max-width: 400px) {
+		
+		.logo h2 {
+			left: 0;
+			margin-left: 0px!important;
+		}
+		.logo h2 div{
+			margin-left: 50px;
 		}
 	}
 </style>

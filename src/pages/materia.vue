@@ -42,9 +42,9 @@
 					    </select>
 						</div>
 						<ul style="clear: both;">
-							<li v-for="content in li.contents"> {{content.content_li}}<span>{{content.fraction}}分</span></li>
+							<li v-for="content in li.contents" v-bind:class="{active:formModel[index].model<=content.stop&&formModel[index].model>=content.start}"> {{content.content_li}}<span>{{content.fraction}}分</span></li>
 						</ul>
-						<div>实际情况说明：<input type="text" :name="getinput(index)" class="explain"></div>
+						<div><span style="float: left;">实际情况说明：</span><textarea type="text" :name="getinput(index)" class="explain"></textarea></div>
 					</div>
 					<div class="col-md-6 col-xs-12 li_content">
 						<div class="title">
@@ -101,16 +101,24 @@
 					"title": "价格情况（15%）",
 					"contents": [{
 						"content_li": "在工作紧张情况下不能提供服务或价格高出市场5%以上。",
-						"fraction": "0-3"
+						"fraction": "0-3",
+						'start':0,
+						'stop':3
 					}, {
 						"content_li": "价格不能保持市场竞争力。",
-						"fraction": "4-7"
+						"fraction": "4-7",
+						'start':4,
+						'stop':7
 					}, {
 						"content_li": "价格保持市场竞争力，在工作紧张时也能及时提供服务。",
-						"fraction": "8-11"
+						"fraction": "8-11",
+						'start':8,
+						'stop':11
 					}, {
 						"content_li": "价格稳中趋降，能协助降低总采购成本。",
-						"fraction": "12-15"
+						"fraction": "12-15",
+						'start':12,
+						'stop':15
 					}],
 					"frac": [
 						0,
@@ -135,16 +143,24 @@
 					"title": "信息支持（25%）",
 					"contents": [{
 						"content_li": "对现场产品故障分析信息需求不配合",
-						"fraction": "0-5"
+						"fraction": "0-5",
+						'start':0,
+						'stop':5
 					}, {
 						"content_li": "对现场产品故障分析信息需求基本配合，但不能消除故障",
-						"fraction": "6-12"
+						"fraction": "6-12",
+						'start':6,
+						'stop':12
 					}, {
 						"content_li": "对现场产品故障分析信息需求基本配合，能协助故障的消除",
-						"fraction": "13-18"
+						"fraction": "13-18",
+						'start':13,
+						'stop':18
 					}, {
 						"content_li": "对现场产品故障分析信息需求积极配合，消除故障，提出改进措施",
-						"fraction": "19-25"
+						"fraction": "19-25",
+						'start':19,
+						'stop':25
 					}],
 					"frac": [
 						0,
@@ -179,16 +195,24 @@
 					"title": "现场支持（30%）",
 					"contents": [{
 						"content_li": "不能兑现售后服务承诺",
-						"fraction": "0-7"
+						"fraction": "0-7",
+						'start':0,
+						'stop':7
 					}, {
 						"content_li": "基本能够兑现售后服务承诺，响应不够及时",
-						"fraction": "8-15"
+						"fraction": "8-15",
+						'start':8,
+						'stop':15
 					}, {
 						"content_li": "基本能够兑现售后服务承诺，响应及时",
-						"fraction": "16-23"
+						"fraction": "16-23",
+						'start':16,
+						'stop':23
 					}, {
 						"content_li": "能够兑现售后服务承诺且响应速度快",
-						"fraction": "24-30"
+						"fraction": "24-30",
+						'start':24,
+						'stop':30
 					}],
 					"frac": [
 						0,
@@ -228,16 +252,24 @@
 					"title": "（试）运行情况（25%）",
 					"contents": [{
 						"content_li": "产品不能满足（试）运行要求，故障频发%以上。",
-						"fraction": "0-5"
+						"fraction": "0-5",
+						'start':0,
+						'stop':5
 					}, {
 						"content_li": "产品基本满足（试）运行各项性能指标和电网要求",
-						"fraction": "6-12"
+						"fraction": "6-12",
+						'start':6,
+						'stop':12
 					}, {
 						"content_li": "产品完全满足（试）运行各项性能指标和电网要求",
-						"fraction": "13-18"
+						"fraction": "13-18",
+						'start':13,
+						'stop':18
 					}, {
 						"content_li": "产品部分指标大幅度超过国标要求和电网要求",
-						"fraction": "19-25"
+						"fraction": "19-25",
+						'start':19,
+						'stop':25
 					}],
 					"frac": [
 						0,
@@ -272,13 +304,19 @@
 					"title": "职业健康安全（3%）",
 					"contents": [{
 						"content_li": "现场运检作业人员，存在不符合国家法律法规、电力行业规范要求，或缺少相关工作的证件等资质要求，不满足工作需要的情况；现场运检作业人员在作业过程及安全检查过程中，存在违反使用单位的安全规章制度，现场工作不规范的情况。%以上。",
-						"fraction": "0"
+						"fraction": "0",
+						'start':0,
+						'stop':0
 					}, {
 						"content_li": "现场运检作业人员，符合国家法律法规、电力行业规范要求，具备相关工作的证件等资质要求，满足工作需要。但在作业过程及安全检查过程中，存在违反使用单位的安全规章制度，现场工作不规范的情况。",
-						"fraction": "1-2"
+						"fraction": "1-2",
+						'start':1,
+						'stop':2
 					}, {
 						"content_li": "现场运检作业人员，在作业过程中，严格遵守使用单位的安全规章制度，现场工作规范，安全素养高，无违章情况发生。在安全检查中，未发现运检作业人员存在违章违纪行为。",
-						"fraction": "3"
+						"fraction": "3",
+						'start':3,
+						'stop':3
 					}],
 					"frac": [
 						0,
@@ -291,13 +329,19 @@
 					"title": "环境保护（2%）",
 					"contents": [{
 						"content_li": "现场运检作业人员，在巡检、作业、操作过程中，严格遵守使用单位环保制度要求，工作过程中，未造成环境污染情况发生。%以上。",
-						"fraction": "0"
+						"fraction": "0",
+						'start':0,
+						'stop':0
 					}, {
 						"content_li": "现场工作期间，用人单位未接到周边居民对运检作业人员作业行为污染周边环境的投诉。",
-						"fraction": "1"
+						"fraction": "1",
+						'start':1,
+						'stop':1
 					}, {
 						"content_li": "现场运检的人员，自觉对生产和生活过程中，产生的废油、废物、废料、垃圾进行统一收集，到指定垃圾站进行处理，不发生随意丢弃的行为。在上级部门、体系审核、专家诊断、安全环水保等各项检查工作中，未发现现场技术服务人员存在破坏环境、污染环境的不法行为。",
-						"fraction": "2"
+						"fraction": "2",
+						'start':2,
+						'stop':2
 					}],
 					"frac": [
 						0,
@@ -444,6 +488,8 @@
 							if (response.data.statusCode == 200) {
 								alert(response.data.message);
 								window.location.reload()
+								document.body.scrollTop = 0
+								document.documentElement.scrollTop = 0
 							}
 						})
 						.catch(function(error) {

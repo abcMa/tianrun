@@ -146,10 +146,13 @@ option,
 	margin-top: 40px;
 	cursor: pointer;
 }
-
 .explain {
 	width: 400px;
 	border-bottom: #999 1px dashed!important;
+	float: left;
+	height: 26px;
+	font-size: 13px;
+	line-height:20px;
 }
 
 .pitch {
@@ -183,11 +186,19 @@ p img {
 }
 @media only screen and (min-width: 100px) and (max-width: 640px) {
 	.input_s {
-		width: 320px!important;
+		width: 95%!important;
 		display: block!important;
 	}
 	.explain {
-		width: 320px;
+		width: 96%;
+		border:solid 1px #ddd!important;
+		background: #fff;
+		height: 60px;
+		line-height: 20px;
+		font-size: 10px;
+		margin-top: 10px;
+		border-radius: 6px;
+		
 	}
 	.careful {
 		width: 100%;
@@ -196,9 +207,13 @@ p img {
 	* {
 		font-size: 12px;
 	}
+	.li_content li{
+		font-size: 12px!important;
+	}
 	p img {
 		width: 12px;
 		margin-right: 5px;
-		margin-top: -3px
+		margin-top: -3px;
+		
 	}
 }

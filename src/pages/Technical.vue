@@ -49,9 +49,9 @@
 					    </select>
 						</div>
 						<ul style="clear: both;">
-							<li v-for="content in li.contents"> {{content.content_li}}<span>{{content.fraction}}分</span></li>
+							<li v-for="content in li.contents" v-bind:class="{active:formModel[index].model<=content.stop&&formModel[index].model>=content.start}"> {{content.content_li}}<span>{{content.fraction}}分</span></li>
 						</ul>
-						<div>实际情况说明：<input type="text" :name="getinput(index)" class="explain"></div>
+						<div><span style="float: left;">实际情况说明：</span><textarea :name="getinput(index)" class="explain"></textarea></div>
 					</div>
 					<div class="col-md-6 col-xs-12 ">
 						<div class="careful">
@@ -62,7 +62,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-md-6 col-xs-12">
+					<div class="col-md-6 col-xs-12 mt">
 						<ul>
 							<li>总&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;得&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分 <input type="text" class="input_s z" name="total_score" v-model="total" readonly="readonly"></li>
 							<li>评价人员签名<input type="text" class="input_s" name="autograph" v-model="autograph" autocomplete="off"></li>
@@ -91,16 +91,24 @@
 					"title": "服务能力（30%）",
 					"contents": [{
 						"content_li": "不能履行服务合同或出具的服务报告不合格，人为原因造成的一般设备或重伤及以上事故。",
-						"fraction": "0-7"
+						"fraction": "0-7",
+						'start':0,
+						'stop':7
 					}, {
 						"content_li": "按要求履行合同并提供完整报告，人为原因造成的记录设备或微伤及以上事故。",
-						"fraction": "8-15"
+						"fraction": "8-15",
+						'start':8,
+						'stop':15
 					}, {
 						"content_li": "服务人员在职责范围内有求必应、有问必答和耐心细致，表现出很高的素质和良好的服务态度，人为原因造成的一类障碍及以下事故。",
-						"fraction": "16-23"
+						"fraction": "16-23",
+						'start':16,
+						'stop':23
 					}, {
 						"content_li": "不仅精通产品技术，同时还对电力行业的用户需求特点有深入的了解，自发优化服务水平，例如对每次服务都进行书面记录，甚至提供书面的用户需求分析报告。",
-						"fraction": "24-30"
+						"fraction": "24-30",
+						'start':24,
+						'stop':30
 					}],
 					"frac": [
 						0,
@@ -140,16 +148,24 @@
 					"title": "价格竞争力（10%）",
 					"contents": [{
 						"content_li": "在工作紧张情况下不能提供服务或价格高出市场5%以上。",
-						"fraction": "0-2"
+						"fraction": "0-2",
+						'start':0,
+						'stop':2
 					}, {
 						"content_li": "价格不能保持市场竞争力。",
-						"fraction": "3-5"
+						"fraction": "3-5",
+						'start':3,
+						'stop':5
 					}, {
 						"content_li": "价格保持市场竞争力，在工作紧张时也能及时提供服务。",
-						"fraction": "6-8"
+						"fraction": "6-8",
+						'start':6,
+						'stop':8
 					}, {
 						"content_li": "价格稳中趋降，能协助降低总采购成本。",
-						"fraction": "9-10"
+						"fraction": "9-10",
+						'start':9,
+						'stop':10
 					}],
 					"frac": [
 						0,
@@ -169,16 +185,24 @@
 					"title": "技术能力（30%）",
 					"contents": [{
 						"content_li": "技术能力不能满足合同要求或行业标准。",
-						"fraction": "0-7"
+						"fraction": "0-7",
+						'start':0,
+						'stop':7
 					}, {
 						"content_li": "技术能力低于国内或国外同类产品平均水平。",
-						"fraction": "8-15"
+						"fraction": "8-15",
+						'start':8,
+						'stop':15
 					}, {
 						"content_li": "技术能力接近国内或国外同类产品先进水平。",
-						"fraction": "16-23"
+						"fraction": "16-23",
+						'start':16,
+						'stop':23
 					}, {
 						"content_li": "根据服务特点，对工作程序及服务项目进行评估，处于国内或国际先进水平。",
-						"fraction": "24-30"
+						"fraction": "24-30",
+						'start':24,
+						'stop':30
 					}],
 					"frac": [
 						0,
@@ -218,16 +242,24 @@
 					"title": "定制服务能力（25%）",
 					"contents": [{
 						"content_li": "不具备相关技术能力。",
-						"fraction": "0-5"
+						"fraction": "0-5",
+						'start':0,
+						'stop':5
 					}, {
 						"content_li": "不具备定制或现有服务改进能力。",
-						"fraction": "6-12"
+						"fraction": "6-12",
+						'start':6,
+						'stop':12
 					}, {
 						"content_li": "有一定的定制服务能力。",
-						"fraction": "13-18"
+						"fraction": "13-18",
+						'start':13,
+						'stop':18
 					}, {
 						"content_li": "在需要时可提供定制服务，技术人员表现出很强的设计能力和技术水平。",
-						"fraction": "19-25"
+						"fraction": "19-25",
+						'start':19,
+						'stop':25
 					}],
 					"frac": [
 						0,
@@ -262,13 +294,19 @@
 					"title": "职业健康安全（3%）",
 					"contents": [{
 						"content_li": "现场提供技术服务的人员，存在不符合国家法律法规、电力行业规范要求，或缺少相关工作的证件等资质要求，不满足工作需要的情况；现场提供技术服务的人员在作业过程及安全检查过程中，存在违反使用单位的安全规章制度，现场工作不规范的情况。",
-						"fraction": "0"
+						"fraction": "0",
+						'start':0,
+						'stop':0
 					}, {
 						"content_li": "现场提供技术服务的人员，符合国家法律法规、电力行业规范要求，具备相关工作的证件等资质要求，满足工作需要。但在作业过程及安全检查过程中，存在违反使用单位的安全规章制度，现场工作不规范的情况。",
-						"fraction": "1-2"
+						"fraction": "1-2",
+						'start':1,
+						'stop':2
 					}, {
 						"content_li": "现场提供技术服务的人员，符合国家法律法规、电力行业规范要求，具备相关工作的证件等资质要求，满足工作需要；在作业过程及安全检查过程中，严格遵守使用单位的安全规章制度，现场工作规范，安全素养高，无违章情况发生。",
-						"fraction": "3"
+						"fraction": "3",
+						'start':3,
+						'stop':3
 					}],
 					"frac": [
 						0,
@@ -281,13 +319,19 @@
 					"title": "环境保护（2%）",
 					"contents": [{
 						"content_li": "现场提供技术服务的人员在作业过程中，不能严格遵守使用单位环保制度要求；施工过程中，不能主动按照“工完、料净、场地清”的要求，自觉对作业过程中产生的废油、废物、废料进行统一收集，到指定垃圾站进行处理。现场技术服务期间，用人单位接到工作监护人、周边居民对技术服务人员作业行为污染周边环境的投诉。",
-						"fraction": "0"
+						"fraction": "0",
+						'start':0,
+						'stop':0
 					}, {
 						"content_li": "现场提供技术服务的人员，在作业过程中，严格遵守使用单位环保制度要求，施工过程中，主动按照“工完、料净、场地清”的要求，自觉对作业过程中产生的废油、废物、废料进行统一收集，到指定垃圾站进行处理。现场技术服务期间，用人单位接到工作监护人、周边居民对技术服务人员作业行为污染周边环境的投诉。",
-						"fraction": "1"
+						"fraction": "1",
+						'start':1,
+						'stop':1
 					}, {
 						"content_li": "现场提供技术服务的人员，在作业过程中，严格遵守使用单位环保制度要求，施工过程中，主动按照“工完、料净、场地清”的要求，自觉对作业过程中产生的废油、废物、废料进行统一收集，到指定垃圾站进行处理。现场技术服务期间，用人单位未接到工作监护人、周边居民对技术服务人员作业行为污染周边环境的投诉。",
-						"fraction": "2"
+						"fraction": "2",
+						'start':2,
+						'stop':2
 					}],
 					"frac": [
 						0,
@@ -377,6 +421,8 @@
 							if (response.data.statusCode == 200) {
 								alert(response.data.message);
 								window.location.reload()
+								document.body.scrollTop = 0
+								document.documentElement.scrollTop = 0
 							}
 						})
 						.catch(function(error) {
@@ -443,15 +489,18 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-	.input_s {
-		width: 250px!important;
+	.input_s {		
 		height: 34px;
+		width: 260px;
 	}
 	
 	@media only screen and (min-width: 100px) and (max-width: 640px) {
 		.input_s {
-			width: 320px!important;
+			
 			display: block!important;
+		}
+		.mt{
+			margin-top: 20px;
 		}
 	}
 </style>

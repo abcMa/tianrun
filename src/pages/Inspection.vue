@@ -1,7 +1,9 @@
 <template>
 	<div class="container">
 		<div class="row">
-			<p class="col-xs-12" style="padding-top: 20px;"><a href="static/评定及分级方案.docx" download="static/评定及分级方案.docx" style="float: right;color: #999;font-size: 13px;text-decoration: none;"><img src="../assets/imgs/x.png">评定及分级方案<span style="font-size: 13px;color: #428bca;margin-left: 10px;">下载</span></a></p>
+			<p class="col-xs-12" style="padding-top: 20px;">
+				<a href="static/评定及分级方案.docx" download="static/评定及分级方案.docx" style="float: right;color: #999;font-size: 13px;text-decoration: none;"><img src="../assets/imgs/x.png">评定及分级方案<span style="font-size: 13px;color: #428bca;margin-left: 10px;">下载</span></a>
+			</p>
 		</div>
 		<form ref="form1" enctype="multipart/form-data">
 			<div class="head_btn">
@@ -34,15 +36,15 @@
 					<div class="col-md-6 col-xs-12 li_content" v-for="(li,index) in lis">
 						<div class="title">
 							<p><img :src="li.icon">{{li.title}}</p>
-							<select :name="gernerateId(index)" @change="total_(index)" v-model="formModel[index].model">
-							<option value="-1">请选择分数</option>
+							<select :name="gernerateId(index)" @change="total_(index)" v-model="formModel[index].model"  >
+							   <option value="-1">请选择分数</option>
 					 	   <option v-for="fr in li.frac" :value="fr">{{fr}}</option>
 					    </select>
 						</div>
 						<ul style="clear: both;">
-							<li v-for="content in li.contents"> {{content.content_li}}<span>{{content.fraction}}分</span></li>
+							<li v-for="content in li.contents"  v-bind:class="{active:formModel[index].model<=content.stop&&formModel[index].model>=content.start}"> {{content.content_li}}<span>{{content.fraction}}分</span></li>
 						</ul>
-						<div>实际情况说明：<input type="text" :name="getinput(index)" class="explain"></div>
+						<div><span style="float: left;">实际情况说明：</span><textarea :name="getinput(index)" class="explain"></textarea></div>
 					</div>
 					<div class="col-md-6 col-xs-12 li_content">
 						<div class="careful">
@@ -83,16 +85,24 @@
 					"title": "价格情况（15%）",
 					"contents": [{
 						"content_li": "在工作紧张情况下不能提供服务或价格高出市场5%以上",
-						"fraction": "0-3"
+						"fraction": "0-3",
+						'start':0,
+						'stop':3
 					}, {
 						"content_li": "价格不能保持市场竞争力",
-						"fraction": "4-7"
+						"fraction": "4-7",
+						'start':4,
+						'stop':7
 					}, {
 						"content_li": "价格保持市场竞争力，在工作紧张时也能及时提供服务",
-						"fraction": "8-11"
+						"fraction": "8-11",
+						'start':8,
+						'stop':11
 					}, {
 						"content_li": "价格稳中趋降，能协助降低总采购成本",
-						"fraction": "12-15"
+						"fraction": "12-15",
+						'start':12,
+						'stop':15
 					}],
 					"frac": [
 						0,
@@ -117,13 +127,19 @@
 					"title": "质量情况（15%）",
 					"contents": [{
 						"content_li": "产品或服务的交检合格率低于95%、运行故障率超过3%",
-						"fraction": "0-5"
+						"fraction": "0-5",
+						'start':0,
+						'stop':5
 					}, {
 						"content_li": "产品或服务的交检合格率97%、运行故障率2%以内",
-						"fraction": "6-10"
+						"fraction": "6-10",
+						'start':6,
+						'stop':10
 					}, {
 						"content_li": "产品或服务的交检合格率99%以上、运行故障率1%以内",
-						"fraction": "11-15"
+						"fraction": "11-15",
+						'start':11,
+						'stop':15
 					}],
 					"frac": [
 						0,
@@ -148,16 +164,24 @@
 					"title": "供货情况（15%）",
 					"contents": [{
 						"content_li": "按期供货率小于70%",
-						"fraction": "0-3"
+						"fraction": "0-3",
+						'start':0,
+						'stop':3
 					}, {
 						"content_li": "按期供货率小于90%",
-						"fraction": "4-7"
+						"fraction": "4-7",
+						'start':4,
+						'stop':7
 					}, {
 						"content_li": "按期供货率≧90%，且部分能随需求调整",
-						"fraction": "8-11"
+						"fraction": "8-11",
+						'start':8,
+						'stop':11
 					}, {
 						"content_li": "完全满足要求，能根据项目实际情况进行调整",
-						"fraction": "12-15"
+						"fraction": "12-15",
+						'start':12,
+						'stop':15
 					}],
 					"frac": [
 						0,
@@ -182,13 +206,19 @@
 					"title": "产品资料（5%）",
 					"contents": [{
 						"content_li": "产品相关资料不齐 全，缺少关键资料",
-						"fraction": "0-1"
+						"fraction": "0-1",
+						'start':0,
+						'stop':1
 					}, {
 						"content_li": "产品相关资料基本齐全，不缺少关键资料",
-						"fraction": "2-3"
+						"fraction": "2-3",
+						'start':2,
+						'stop':3
 					}, {
 						"content_li": "产品相关资料齐全、交接及时",
-						"fraction": "4-5"
+						"fraction": "4-5",
+						'start':4,
+						'stop':5
 					}],
 					"frac": [
 						0,
@@ -203,16 +233,24 @@
 					"title": "技术对接（15%）",
 					"contents": [{
 						"content_li": "配合不好或对接不及时",
-						"fraction": "0-3"
+						"fraction": "0-3",
+						'start':0,
+						'stop':3
 					}, {
 						"content_li": "配合、对接一般，基本满足要求",
-						"fraction": "4-7"
+						"fraction": "4-7",
+						'start':4,
+						'stop':7
 					}, {
 						"content_li": "配合良好，对接及时",
-						"fraction": "8-11"
+						"fraction": "8-11",
+						'start':8,
+						'stop':11
 					}, {
 						"content_li": " 配合、对接过程中能够给使用单位提供技术指导",
-						"fraction": "12-15"
+						"fraction": "12-15",
+						'start':12,
+						'stop':15
 					}],
 					"frac": [
 						0,
@@ -237,16 +275,24 @@
 					"title": "现场验收（15%）",
 					"contents": [{
 						"content_li": "规格型号或数量有误，外包装有破损,且缺少关键资料",
-						"fraction": "0-3"
+						"fraction": "0-3",
+						'start':0,
+						'stop':3
 					}, {
 						"content_li": "规格型号及数量准确，外包装有破损，且资料基本齐全",
-						"fraction": "4-7"
+						"fraction": "4-7",
+						'start':4,
+						'stop':7
 					}, {
 						"content_li": "规格型号及数量准确，外包装完整，且资料齐全",
-						"fraction": "8-11"
+						"fraction": "8-11",
+						'start':8,
+						'stop':11
 					}, {
 						"content_li": "产品设计、制造合理，便于操作",
-						"fraction": "12-15"
+						"fraction": "12-15",
+						'start':12,
+						'stop':15
 					}],
 					"frac": [
 						0,
@@ -271,16 +317,24 @@
 					"title": "信息支持及售后（15%）",
 					"contents": [{
 						"content_li": "对现场产品故障信息需求不配合/不能兑现售后服务承诺",
-						"fraction": "0-3"
+						"fraction": "0-3",
+						'start':0,
+						'stop':3
 					}, {
 						"content_li": "对现场产品故障信息需求配合周期很长，协助故障的消除时间超过市场平均水平",
-						"fraction": "4-7"
+						"fraction": "4-7",
+						'start':4,
+						'stop':7
 					}, {
 						"content_li": "对现场产品故障信息需求基本配合，能协助故障的消除/基本兑现售后服务承诺",
-						"fraction": "8-11"
+						"fraction": "8-11",
+						'start':8,
+						'stop':11
 					}, {
 						"content_li": "对现场产品故障信息需求积极配合，消除故障，提出改进措施/兑现售后服务承诺且响应速度快",
-						"fraction": "12-15"
+						"fraction": "12-15",
+						'start':12,
+						'stop':15
 					}],
 					"frac": [
 						0,
@@ -305,13 +359,19 @@
 					"title": "职业健康安全（3%）",
 					"contents": [{
 						"content_li": "对现场提供的设备设施、物资材料，存在不符合国家法律法规、电力行业规范要求的情况。在设备设施、物资材料使用期间，发生安全事故并导致人员伤亡及财产损失的情况",
-						"fraction": "0"
+						"fraction": "0",
+						'start':0,
+						'stop':0
 					}, {
 						"content_li": "在设备设施、物资材料使用期间，接到现场人员对其存在安全风险方面的投诉，但未造成实际人员伤亡及财产损失的情况",
-						"fraction": "1-2"
+						"fraction": "1-2",
+						'start':1,
+						'stop':2
 					}, {
 						"content_li": "对现场提供的设备设施、物资材料，符合国家法律法规、电力行业规范要求，对现场作业人员不构成安全风险。在设备设施、物资材料使用期间，未接到现场人员对其存在安全风险方面的投诉",
-						"fraction": "3"
+						"fraction": "3",
+						'start':3,
+						'stop':3
 					}],
 					"frac": [
 						0,
@@ -324,19 +384,24 @@
 					"title": "环境保护（2%）",
 					"contents": [{
 						"content_li": "对现场提供的设备设施、物资材料，存在不符合国家法律法规、电力行业规范要求的情况，对周边环境造成污染的情况",
-						"fraction": "0"
+						"fraction": "0",
+						'start':0,
+						'stop':0
 					}, {
 						"content_li": "在设备设施、物资材料使用期间，接到现场人员、周边居民对其污染周边环境的投诉，造成污染情况较轻未产生损失的情况",
-						"fraction": "1-2"
+						"fraction": "1",
+						'start':1,
+						'stop':1
 					}, {
 						"content_li": "对现场提供的设备设施、物资材料，符合国家法律法规、电力行业规范要求，不构成对周边环境造成污染。在设备设施、物资材料使用期间，未接到现场人员、周边居民对其污染周边环境的投诉。在上级部门、体系审核、专家诊断等的各项检查工作中，未对设备设施、物资材料提出不符合环保要求的问题",
-						"fraction": "3"
+						"fraction": "2",
+						'start':2,
+						'stop':2
 					}],
 					"frac": [
 						0,
 						1,
-						2,
-						3
+						2
 					]
 				}],
 				supplier: '',
@@ -426,6 +491,8 @@
 							if (response.data.statusCode == 200) {
 								alert(response.data.message);
 								window.location.reload()
+								document.body.scrollTop = 0
+								document.documentElement.scrollTop = 0
 							}
 						})
 						.catch(function(error) {
